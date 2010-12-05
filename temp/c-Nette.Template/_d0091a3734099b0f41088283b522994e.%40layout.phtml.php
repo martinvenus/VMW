@@ -1,8 +1,8 @@
-<?php //netteCache[01]000230a:3:{s:4:"time";s:21:"0.44304100 1291569676";s:6:"expire";i:1291569676;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:48:"/var/www/VMW/www/../app/templates//@layout.phtml";i:2;i:1291558418;}}}?><?php
+<?php //netteCache[01]000230a:3:{s:4:"time";s:21:"0.89659200 1291590875";s:6:"expire";i:1291590875;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:48:"/var/www/VMW/www/../app/templates//@layout.phtml";i:2;i:1291558418;}}}?><?php
 // file …/templates//@layout.phtml
 //
 
-$_cb = NLatteMacros::initRuntime($template, NULL, '6cf648dba5'); unset($_extends);
+$_cb = NLatteMacros::initRuntime($template, NULL, 'f4e702c9ca'); unset($_extends);
 
 if (NSnippetHelper::$outputAllowed) {
 ?>

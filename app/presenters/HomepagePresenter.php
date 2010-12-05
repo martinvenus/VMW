@@ -18,7 +18,25 @@ class HomepagePresenter extends BasePresenter {
     public function renderDefault() {
         $f = new FlickrModel("eb01c6c4e23a0f036988692a7f42dd14");
 
-        $recent = $f->photos_search(array("tags" => "český krumlov", "tag_mode" => "any", "sort" => "interestingness-asc"));
+        $recent = $f->photos_search(array("tags" => "český krumlov", "tag_mode" => "any", "sort" => "relevance", "media" => "photos", "per_page" => 200));
+
+        foreach ($recent['photo'] as $key => $photo) {
+            $sizes = $f->photos_getSizes($photo['id']);
+
+            $isLarge = false;
+            foreach ($sizes as $size) {
+                if (strcmp($size['label'], 'Large') == 0) {
+                    $isLarge = true;
+                    break;
+                }
+            }
+
+            if ($isLarge == false) {
+
+                unset($recent['photo'][$key]);
+
+            }
+        }
 
         $this->template->data = $recent;
     }

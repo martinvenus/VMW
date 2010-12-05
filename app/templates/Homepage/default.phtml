@@ -6,7 +6,7 @@ Počet fotek: <?php echo count($data['photo']); ?><br />
 {foreach $data['photo'] as $photo}
 <img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" />
 <br />
-<a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg" target="_blank">velka fotka (1024x768)</a>
+<a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg" target="_blank">velka fotka</a>
 <br />
 <br />
 {/foreach}
