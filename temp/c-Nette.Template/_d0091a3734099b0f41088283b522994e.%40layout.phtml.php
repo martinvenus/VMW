@@ -1,8 +1,8 @@
-<?php //netteCache[01]000230a:3:{s:4:"time";s:21:"0.87408700 1291553486";s:6:"expire";i:1291553486;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:48:"/var/www/VMW/www/../app/templates//@layout.phtml";i:2;i:1291239858;}}}?><?php
+<?php //netteCache[01]000230a:3:{s:4:"time";s:21:"0.44304100 1291569676";s:6:"expire";i:1291569676;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:48:"/var/www/VMW/www/../app/templates//@layout.phtml";i:2;i:1291558418;}}}?><?php
 // file …/templates//@layout.phtml
 //
 
-$_cb = NLatteMacros::initRuntime($template, NULL, '93b0d7ee6b'); unset($_extends);
+$_cb = NLatteMacros::initRuntime($template, NULL, '6cf648dba5'); unset($_extends);
 
 if (NSnippetHelper::$outputAllowed) {
 ?>
@@ -15,12 +15,11 @@ if (NSnippetHelper::$outputAllowed) {
 	<meta name="robots" content="<?php echo NTemplateHelpers::escapeHtml($robots) ?>">
 <?php endif ?>
 
-	<title>Nette Application Skeleton</title>
+	<title>MI-VMW semestral project</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="<?php echo NTemplateHelpers::escapeHtml($basePath) ?>/css/screen.css" type="text/css">
 	<link rel="stylesheet" media="print" href="<?php echo NTemplateHelpers::escapeHtml($basePath) ?>/css/print.css" type="text/css">
-	<link rel="shortcut icon" href="<?php echo NTemplateHelpers::escapeHtml($basePath) ?>/favicon.ico" type="image/x-icon">
-</head>
+	</head>
 
 <body>
 	<?php foreach ($iterator = $_cb->its[] = new NSmartCachingIterator($flashes) as $flash): ?><div class="flash <?php echo NTemplateHelpers::escapeHtml($flash->type) ?>"><?php echo NTemplateHelpers::escapeHtml($flash->message) ?></div><?php endforeach; array_pop($_cb->its); $iterator = end($_cb->its) ?>

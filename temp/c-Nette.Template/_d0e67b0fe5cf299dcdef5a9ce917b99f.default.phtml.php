@@ -1,58 +1,28 @@
-<?php //netteCache[01]000238a:3:{s:4:"time";s:21:"0.85295600 1291553486";s:6:"expire";i:1291553486;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:56:"/var/www/VMW/www/../app/templates/Homepage/default.phtml";i:2;i:1291239858;}}}?><?php
+<?php //netteCache[01]000238a:3:{s:4:"time";s:21:"0.39707200 1291569676";s:6:"expire";i:1291569676;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:56:"/var/www/VMW/www/../app/templates/Homepage/default.phtml";i:2;i:1291555273;}}}?><?php
 // file …/templates/Homepage/default.phtml
 //
 
-$_cb = NLatteMacros::initRuntime($template, NULL, '36fa355c52'); unset($_extends);
+$_cb = NLatteMacros::initRuntime($template, NULL, '13f14c741f'); unset($_extends);
 
 
 //
 // block content
 //
-if (!function_exists($_cb->blocks['content'][] = '_cbbb1965bc797_content')) { function _cbbb1965bc797_content($_args) { extract($_args)
+if (!function_exists($_cb->blocks['content'][] = '_cbba85ab61734_content')) { function _cbba85ab61734_content($_args) { extract($_args)
 ?>
+Počet fotek: <?php echo count($data['photo']) ?><br />
+<br />
+<br />
 
-<div id="header">
-	<h1>It works!</h1>
+<?php foreach ($iterator = $_cb->its[] = new NSmartCachingIterator($data['photo']) as $photo): ?>
+<img src="http://farm<?php echo NTemplateHelpers::escapeHtml($photo['farm']) ?>.static.flickr.com/<?php echo NTemplateHelpers::escapeHtml($photo['server']) ?>/<?php echo NTemplateHelpers::escapeHtml($photo['id']) ?>_<?php echo NTemplateHelpers::escapeHtml($photo['secret']) ?>_s.jpg" />
+<br />
+<a href="http://farm<?php echo NTemplateHelpers::escapeHtml($photo['farm']) ?>.static.flickr.com/<?php echo NTemplateHelpers::escapeHtml($photo['server']) ?>/<?php echo NTemplateHelpers::escapeHtml($photo['id']) ?>_<?php echo NTemplateHelpers::escapeHtml($photo['secret']) ?>_b.jpg" target="_blank">velka fotka (1024x768)</a>
+<br />
+<br />
+<?php endforeach; array_pop($_cb->its); $iterator = end($_cb->its) ?>
 
-	<h2>Congratulations on your first Nette Framework powered page.</h2>
-</div>
-
-<div>
-	<p><?php echo NTemplateHelpers::escapeHtml($message) ?></p>
-
-	<a href="http://nette.org" title="Nette Framework - The most innovative PHP framework"><img
-	src="<?php echo NTemplateHelpers::escapeHtml($basePath) ?>/images/nette-powered2.gif" width="80" height="15" alt="Nette Framework powered"></a>
-</div>
-
-<style>
-	body {
-		margin: 0;
-		padding: 0;
-	}
-
-	div {
-		padding: .2em 1em;
-	}
-
-	#header {
-		background: #EEE;
-		border-bottom: 1px #DDD solid;
-	}
-
-	h1 {
-		color: #0056ad;
-		font-size: 30px;
-	}
-
-	h2 {
-		color: gray;
-		font-size: 20px;
-	}
-
-	img {
-		border: none;
-	}
-</style><?php
+<?php
 }}
 
 //

@@ -14,8 +14,6 @@
 // you don't have to litter your code with 'require' statements
 require LIBS_DIR . '/Nette/loader.php';
 
-
-
 // Step 2: Configure environment
 // 2a) enable NDebug for better exception and error visualisation
 NDebug::enable(NDebug::DETECT, APP_DIR . '/../log/error.log');
@@ -47,7 +45,16 @@ $router[] = new NRoute('<presenter>/<action>/<id>', array(
 	'id' => NULL,
 ));
 
+require_once('db.php');
 
+dibi::connect(array(
+            'driver' => 'mysql',
+            'host' => 'porthos.wsolution.cz',
+            'username' => $user_mysql,
+            'password' => $pass_mysql,
+            'database' => $db_mysql,
+            'charset' => 'utf8',
+        ));
 
 // Step 5: Run the application!
 $application->run();
