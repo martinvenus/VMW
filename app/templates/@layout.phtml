@@ -1,32 +1,54 @@
-{**
- * My Application layout template.
- *
- * @copyright  Copyright (c) 2010 John Doe
- * @package    MyApplication
- *
- * @param string   $basePath web base path
- * @param string   $robots   tell robots how to index the content of a page (optinal)
- * @param array    $flashes  flash messages
- *}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>VMW</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div id="top_menu">
+            <ul class="menu">
+                <li><a href="index.html" class="nav">home</a></li>
+            </ul>
+        </div>
+        <div id="main_content">
+            <div id="top_banner">
+                <a href="index.html"><img src="images/logo.jpg" width="230" height="130" alt="home" title="logo" border="0" class="logo" /></a>
+            </div>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <div id="page_content">
 
-	<meta name="description" content="Nette Framework web application skeleton">
-	<meta name="robots" content="{$robots}" n:ifset="$robots">
+                <div class="title">
+                    {include #header}
+                </div>
+                <div class="content_text">
 
-	<title>MI-VMW semestral project</title>
+                    {foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css" type="text/css">
-	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css" type="text/css">
-	{* <link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon"> *}
-</head>
+                    {include #content}
 
-<body>
-	{foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
 
-	{include #content}
-</body>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <div id="footer_content">
+                <div id="copyrights">
+                    Quartz Solution.&copy; All Rights Reserved 2007
+                </div>
+
+                <div id="madeby">
+                    <a href="http://www.csscreme.com"><img src="images/csscreme_link.jpg" width="125" height="40"  border="0" alt="csscreme" title="csscreme"/></a>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
 </html>
+

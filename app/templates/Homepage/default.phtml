@@ -1,26 +1,10 @@
+{block header}
+Fotografie (<?php echo count($data['photo']); ?> fotek)
+{/block}
 {block content}
-Počet fotek: <?php echo count($data['photo']); ?><br />
-<br />
-<br />
 
-<table border="1">
 {foreach $data['photo'] as $photo}
-{if $iterator->getCounter()%8 == 1}<tr>{/if}
-        <td>
-            <img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" />
-            <br />
-            <a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg" target="_blank">velka fotka</a><br />
-            {$photo['percentage']}%
-        </td>
-{if $iterator->getCounter()%8 == 0}</tr>{/if}
+<a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg"><img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_t.jpg" alt="pic" title="{$photo['percentage']}" class="gallery" /></a>
 {/foreach}
 
-{*
-    $owner = $f->people_getInfo($photo['owner']);
-    echo "<a href='http://www.flickr.com/photos/" . $photo['owner'] . "/" . $photo['id'] . "/'>";
-    echo $photo['title'];
-    echo "</a> Owner: ";
-    echo "<a href='http://www.flickr.com/people/" . $photo['owner'] . "/'>";
-    echo $owner['username'];
-    echo "</a><br>";
-*}
+{/block}

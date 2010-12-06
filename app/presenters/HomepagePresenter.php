@@ -40,10 +40,10 @@ class HomepagePresenter extends BasePresenter {
         $this->template->data = $recent;
     }
 
-    public function actionDefault($color = 'red') {
+    public function actionDefault($color = 'black') {
         $f = new FlickrModel("eb01c6c4e23a0f036988692a7f42dd14");
 
-        $recent = $f->photos_search(array("tags" => "český krumlov", "tag_mode" => "any", "sort" => "relevance", "media" => "photos", "per_page" => 50));
+        $recent = $f->photos_search(array("tags" => "český krumlov", "tag_mode" => "any", "sort" => "relevance", "media" => "photos", "per_page" => 20));
 
         foreach ($recent['photo'] as $key => $photo) {
             $sizes = $f->photos_getSizes($photo['id']);

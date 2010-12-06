@@ -1,0 +1,5 @@
+!.gitignore
+
+temp/
+log/
+www/.htaccess
