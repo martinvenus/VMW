@@ -36,7 +36,7 @@ class HomepagePresenter extends BasePresenter {
             }
         }
 
-        foreach($recent['photo'] as $key=>$photo) {
+        foreach ($recent['photo'] as $key => $photo) {
 
             $file = "http://farm" . $photo['farm'] . ".static.flickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['secret'] . "_b.jpg";
 
@@ -46,6 +46,31 @@ class HomepagePresenter extends BasePresenter {
         }
 
         $this->template->data = $recent;
+    }
+
+    public function actionForm() {
+
+    }
+
+    public function createComponentMainForm() {
+        $form = new NAppForm;
+        $form->addText('keyword', 'Klíčové slovo:')
+                ->addRule(NForm::FILLED, 'Musíte vyplnit klíčové slovo!');
+        $form->addSelect('color', 'Barva:', array(
+            'black' => 'Černá',
+            'white' => 'Bílá',
+        ));
+        $form->addSubmit('search', 'Vyhledat');
+        $form->onSubmit[] = callback($this, 'processMainForm');
+
+        return $form;
+    }
+
+    public function processTodoForm(AppForm $form) {
+        if ($form['search']->isSubmittedBy()) {
+            // zpracuj
+        }
+        // redirectni
     }
 
 }
