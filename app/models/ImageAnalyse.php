@@ -64,7 +64,7 @@ class ImageAnalyse extends NObject {
         return $result;
     }
 
-     /**
+    /**
      * Metoda vrátí id barvy podle html kódu
      * @return barva
      */
@@ -110,14 +110,23 @@ class ImageAnalyse extends NObject {
             }
         }
 
-        if (@$color_array[$searchColor] > 0){
+        if (@$color_array[$searchColor] > 0) {
             $percentage = ($color_array[$searchColor] / ($dimX * $dimY)) * 100;
-        }
-        else {
+        } else {
             $percentage = 0;
         }
 
         return $percentage;
+    }
+
+    public static function compare($a, $b) {
+        if ($a['percentage'] == $b['percentage']) {
+            return 0;
+        } elseif ($a['percentage'] > $b['percentage']) {
+            return -1;
+        } else {
+            return 1;
+        }
     }
 
 }
