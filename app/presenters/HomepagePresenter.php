@@ -14,10 +14,10 @@
  */
 class HomepagePresenter extends BasePresenter {
 
-    public function actionDefault($color = 'black') {
+    public function actionSearch($keyword, $color = 'black') {
         $f = new FlickrModel("eb01c6c4e23a0f036988692a7f42dd14");
 
-        $recent = $f->photos_search(array("tags" => "český krumlov", "tag_mode" => "any", "sort" => "relevance", "media" => "photos", "per_page" => 20));
+        $recent = $f->photos_search(array("tags" => $keyword, "tag_mode" => "any", "sort" => "relevance", "media" => "photos", "per_page" => 20));
 
         foreach ($recent['photo'] as $key => $photo) {
             $sizes = $f->photos_getSizes($photo['id']);
@@ -48,10 +48,6 @@ class HomepagePresenter extends BasePresenter {
         $this->template->data = $recent;
     }
 
-    public function actionForm() {
-
-    }
-
     public function createComponentMainForm() {
         $form = new NAppForm;
         $form->addText('keyword', 'Klíčové slovo:')
@@ -66,11 +62,15 @@ class HomepagePresenter extends BasePresenter {
         return $form;
     }
 
-    public function processTodoForm(AppForm $form) {
+    public function processMainForm(NAppForm $form) {
         if ($form['search']->isSubmittedBy()) {
-            // zpracuj
+
+            $data = $form->getValues(); // vezmeme data z formuláře
+
+            $this->redirect('search', $data['keyword'], $data['color']);
         }
-        // redirectni
+
+        $this->redirect('Homepage:default');
     }
 
 }
