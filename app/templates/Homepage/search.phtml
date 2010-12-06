@@ -1,0 +1,10 @@
+{block header}
+Fotografie (<?php echo count($data['photo']); ?> fotek)
+{/block}
+{block content}
+
+{foreach $data['photo'] as $photo}
+<a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg"><img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_t.jpg" alt="pic" title="{$photo['percentage']}" class="gallery" /></a>
+{/foreach}
+
+{/block}
