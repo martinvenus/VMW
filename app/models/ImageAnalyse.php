@@ -54,4 +54,70 @@ class ImageAnalyse extends NObject {
         return $colorArray;
     }
 
+    /**
+     * Metoda vrátí všechny barvy z databáze
+     * @return dataSource barvy
+     */
+    public static function getColors() {
+        $result = dibi::dataSource('SELECT * FROM color');
+
+        return $result;
+    }
+
+     /**
+     * Metoda vrátí id barvy podle html kódu
+     * @return barva
+     */
+    public static function getColorIdByBaseColor($baseColor) {
+        $result = dibi::dataSource('SELECT id FROM color WHERE base = %s', $baseColor);
+
+        return $result->fetchSingle();
+    }
+
+    public static function getColorPercentage($file, $searchColor, $dimX = 5, $dimY = 5) {
+
+        $color_array = array();
+
+        $source = imageCreatefromjpeg($file);
+        $data = ImageAnalyse::analyzeImageColors($source, $dimX, $dimY);
+
+        $colors = self::getColors()->fetchAll();
+
+        for ($i = 0; $i < $dimX; $i++) {
+            for ($j = 0; $j < $dimY; $j++) {
+
+                $distance_min = PHP_INT_MAX;
+                $baseColor = 0;
+
+                foreach ($colors as $color_db) {
+                    $rozdil_r = $data[$i][$j]['r'] - $color_db['red'];
+                    $rozdil_g = $data[$i][$j]['g'] - $color_db['green'];
+                    $rozdil_b = $data[$i][$j]['b'] - $color_db['blue'];
+
+                    $distance = pow($rozdil_r, 2) + pow($rozdil_g, 2) + pow($rozdil_b, 2);
+
+                    if ($distance < $distance_min) {
+                        $distance_min = $distance;
+                        $baseColor = $color_db['base'];
+                    }
+                }
+
+                if (@$color_array[$baseColor] > 0) {
+                    $color_array[$baseColor]++;
+                } else {
+                    $color_array[$baseColor] = 1;
+                }
+            }
+        }
+
+        if (@$color_array[$searchColor] > 0){
+            $percentage = ($color_array[$searchColor] / ($dimX * $dimY)) * 100;
+        }
+        else {
+            $percentage = 0;
+        }
+
+        return $percentage;
+    }
+
 }
