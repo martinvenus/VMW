@@ -4,11 +4,28 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>VMW</title>
         <link rel="stylesheet" type="text/css" href="{$baseUri}style.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="{$baseUri}fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+        <link rel="stylesheet" href="{$baseUri}fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+        <script type="text/javascript">
+
+            <!-- <![CDATA[
+            $(document).ready(function()
+            {
+
+                $("a[rel*=lightbox]").fancybox();
+
+            });
+            //]]> -->
+        </script>
+
+
     </head>
     <body>
         <div id="top_menu">
             <ul class="menu">
-                <li><a href="{$basePath}" class="nav">home</a></li>
+                <li><a href="{$basePath}" class="nav">Úvodní stránka</a></li>
             </ul>
         </div>
         <div id="main_content">
@@ -39,7 +56,7 @@
         <div id="footer">
             <div id="footer_content">
                 <div id="copyrights">
-                    Quartz Solution.&copy; All Rights Reserved 2007
+                    Martin Venuš & Jaroslav Líbal, 2010
                 </div>
 
                 <div id="madeby">
