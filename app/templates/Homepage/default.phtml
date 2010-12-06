@@ -1,14 +1,10 @@
+{block header}
+Fotografie (<?php echo count($data['photo']); ?> fotek)
+{/block}
 {block content}
-Počet fotek: <?php echo count($data['photo']); ?><br />
-<br />
-<br />
 
 {foreach $data['photo'] as $photo}
-<img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" />
-<br />
-<a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg" target="_blank">velka fotka</a>
-<br />
-<br />
+<a href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg"><img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" alt="pic" title="pic" class="gallery" /></a>
 {/foreach}
 
 {*
@@ -20,3 +16,4 @@ Počet fotek: <?php echo count($data['photo']); ?><br />
     echo $owner['username'];
     echo "</a><br>";
 *}
+{/block}
