@@ -1,8 +1,8 @@
-<?php //netteCache[01]000236a:3:{s:4:"time";s:21:"0.51498900 1291664689";s:6:"expire";i:1291664689;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:54:"C:\AppServ\www\VMW\www/../app/templates//@layout.phtml";i:2;i:1291663173;}}}?><?php
+<?php //netteCache[01]000236a:3:{s:4:"time";s:21:"0.76857200 1291668307";s:6:"expire";i:1291668307;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:54:"C:\AppServ\www\VMW\www/../app/templates//@layout.phtml";i:2;i:1291668068;}}}?><?php
 // file …/templates//@layout.phtml
 //
 
-$_cb = NLatteMacros::initRuntime($template, NULL, '2f4ab9d9fd'); unset($_extends);
+$_cb = NLatteMacros::initRuntime($template, NULL, '89b7e0069a'); unset($_extends);
 
 if (NSnippetHelper::$outputAllowed) {
 ?>
@@ -11,7 +11,7 @@ if (NSnippetHelper::$outputAllowed) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>VMW</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo NTemplateHelpers::escapeHtml($baseUri) ?>style.css" />
     </head>
     <body>
         <div id="top_menu">
@@ -21,7 +21,7 @@ if (NSnippetHelper::$outputAllowed) {
         </div>
         <div id="main_content">
             <div id="top_banner">
-                <a href="index.html"><img src="images/logo.jpg" width="230" height="130" alt="home" title="logo" border="0" class="logo" /></a>
+                <a href="index.html"><img src="<?php echo NTemplateHelpers::escapeHtml($baseUri) ?>images/logo.jpg" width="230" height="130" alt="home" title="logo" border="0" class="logo" /></a>
             </div>
 
             <div id="page_content">

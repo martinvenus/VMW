@@ -1,14 +1,14 @@
-<?php //netteCache[01]000244a:3:{s:4:"time";s:21:"0.49014800 1291664689";s:6:"expire";i:1291664689;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:62:"C:\AppServ\www\VMW\www/../app/templates/Homepage/default.phtml";i:2;i:1291662960;}}}?><?php
+<?php //netteCache[01]000244a:3:{s:4:"time";s:21:"0.74207900 1291668307";s:6:"expire";i:1291668307;s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:62:"C:\AppServ\www\VMW\www/../app/templates/Homepage/default.phtml";i:2;i:1291662960;}}}?><?php
 // file …/templates/Homepage/default.phtml
 //
 
-$_cb = NLatteMacros::initRuntime($template, NULL, '3ace28a276'); unset($_extends);
+$_cb = NLatteMacros::initRuntime($template, NULL, '531809d26b'); unset($_extends);
 
 
 //
 // block header
 //
-if (!function_exists($_cb->blocks['header'][] = '_cbb66bf2ab3b6_header')) { function _cbb66bf2ab3b6_header($_args) { extract($_args)
+if (!function_exists($_cb->blocks['header'][] = '_cbb244a543913_header')) { function _cbb244a543913_header($_args) { extract($_args)
 ?>
 Fotografie (<?php echo count($data['photo']) ?> fotek)
 <?php
@@ -18,7 +18,7 @@ Fotografie (<?php echo count($data['photo']) ?> fotek)
 //
 // block content
 //
-if (!function_exists($_cb->blocks['content'][] = '_cbb0216b1ea37_content')) { function _cbb0216b1ea37_content($_args) { extract($_args)
+if (!function_exists($_cb->blocks['content'][] = '_cbb04f2570428_content')) { function _cbb04f2570428_content($_args) { extract($_args)
 ?>
 
 <?php foreach ($iterator = $_cb->its[] = new NSmartCachingIterator($data['photo']) as $photo): ?>
