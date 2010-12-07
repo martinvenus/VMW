@@ -4,3 +4,15 @@ temp/
 log/
 www/.htaccess
 nbproject/
+
+documentation/dokumentace.aux
+documentation/dokumentace.log
+documentation/dokumentace.pdf
+documentation/dokumentace.toc
+documentation/dokumentace.out
+documentation/dokumentace.bbl
+documentation/dokumentace.blg
+documentation/dokumentace.dvi
+documentation/dokumentace.ps
+documentation/dokumentace.synctex
+documentation/dokumentace.wsp
