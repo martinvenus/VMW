@@ -1,6 +1,6 @@
 <?php
-
-/* phpFlickr Class 3.0
+/**
+ * phpFlickr Class 3.0
  * Written by Dan Coulter (dan@dancoulter.com)
  * Project Home Page: http://phpflickr.com/
  * Released under GNU Lesser General Public License (http://www.gnu.org/copyleft/lgpl.html)
@@ -15,7 +15,6 @@
  * 		 http://code.google.com/p/phpflickr/issues/list
  *
  */
-
 class FlickrModel {
 
     var $api_key;

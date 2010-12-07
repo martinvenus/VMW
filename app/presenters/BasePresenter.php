@@ -1,19 +1,17 @@
 <?php
-
 /**
- * My NApplication
+ * Flickr - feature-based reranking
+ * MI-VMW at CZECH TECHNICAL UNIVERSITY IN PRAGUE
  *
- * @copyright  Copyright (c) 2010 John Doe
- * @package    MyApplication
+ * @copyright  Copyright (c) 2010
+ * @package    VMW
+ * @author     Jaroslav Líbal, Martin Venuš
  */
 
-
-
 /**
- * Base class for all application presenters.
  *
- * @author     John Doe
- * @package    MyApplication
+ * BasePresenter
+ *
  */
 abstract class BasePresenter extends NPresenter
 {

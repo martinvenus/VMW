@@ -1,10 +1,13 @@
 <?php
 
 /**
- * My NApplication bootstrap file.
+ * Flickr - feature-based reranking
+ * MI-VMW at CZECH TECHNICAL UNIVERSITY IN PRAGUE
  *
- * @copyright  Copyright (c) 2010 John Doe
- * @package    MyApplication
+ * @copyright  Copyright (c) 2010
+ * @package    VMW
+ * @author     Jaroslav Líbal, Martin Venuš
+ * 
  */
 
 

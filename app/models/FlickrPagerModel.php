@@ -1,4 +1,20 @@
 <?php
+/**
+ * phpFlickr Class 3.0
+ * Written by Dan Coulter (dan@dancoulter.com)
+ * Project Home Page: http://phpflickr.com/
+ * Released under GNU Lesser General Public License (http://www.gnu.org/copyleft/lgpl.html)
+ * For more information about the class and upcoming tools and toys using it,
+ * visit http://www.phpflickr.com/
+ *
+ * 	 For installation instructions, open the README.txt file packaged with this
+ * 	 class. If you don't have a copy, you can see it at:
+ * 	 http://www.phpflickr.com/README.txt
+ *
+ * 	 Please submit all problems or questions to the Help Forum on my Google Code project page:
+ * 		 http://code.google.com/p/phpflickr/issues/list
+ *
+ */
 class FlickrPagerModel {
 
     var $phpFlickr, $per_page, $method, $args, $results, $global_phpFlickr;

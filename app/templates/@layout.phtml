@@ -1,3 +1,14 @@
+{**
+ * Flickr - feature-based reranking
+ * MI-VMW at CZECH TECHNICAL UNIVERSITY IN PRAGUE
+ *
+ * @copyright  Copyright (c) 2010
+ * @package    VMW
+ * @author     Jaroslav Líbal, Martin Venuš
+ *
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -38,19 +49,15 @@
                 <div class="title">
                     {include #header}
                 </div>
+                
                 <div class="content_text">
 
                     {foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
 
                     {include #content}
 
-
                 </div>
-
-
-
             </div>
-
         </div>
 
         <div id="footer">
@@ -63,7 +70,6 @@
                     <a href="http://www.csscreme.com"><img src="images/csscreme_link.jpg" width="125" height="40"  border="0" alt="csscreme" title="csscreme"/></a>
                 </div>
             </div>
-
         </div>
 
     </body>

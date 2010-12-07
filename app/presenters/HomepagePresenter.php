@@ -1,19 +1,34 @@
 <?php
-
 /**
- * MI-VMW
+ * Flickr - feature-based reranking
+ * MI-VMW at CZECH TECHNICAL UNIVERSITY IN PRAGUE
  *
- * @package    MI-VMW
+ * @copyright  Copyright (c) 2010
+ * @package    VMW
+ * @author     Jaroslav Líbal, Martin Venuš
  */
 
 /**
- * Homepage presenter.
  *
- * @author     Martin Venuš, Jaroslav Líbal
- * @package    MI-VMW, semestral project
+ * HomepagePresenter
+ *
  */
 class HomepagePresenter extends BasePresenter {
 
+    /**
+     * Metoda, která získá obrázky z Flickr API, aplikuje analýzu barev a
+     * zobrazí výsledky
+     * @param String $keyword klíčové slovo
+     * @param String $color hledaná barva
+     * @param int $raster počet částí na které je obrázek rozdělen (pro vyhledávání dominantní barvy)
+     * @param int $numberOfPhoto počet fotografií, které budou staženy z FlickrAPI
+     *
+     * Poznámky:
+     * $raster určuje počet částí v horizontální (vertikální) části obrázku - tzn. ve skutečnosti bude obrázek rozdělen na $raster^2
+     * $numberOfPhoto je počet obrázků, které Flickr vrátí. Některé z nich však
+     * nejsou k dispozici v dostatečném rozlišení a proto nejsou pro barevnou analýzu
+     * použity
+     */
     public function actionSearch($keyword, $color = 'black', $raster = 10, $numberOfPhoto = 20) {
         $f = new FlickrModel("eb01c6c4e23a0f036988692a7f42dd14");
 
@@ -51,6 +66,10 @@ class HomepagePresenter extends BasePresenter {
         $this->template->data = $photos;
     }
 
+    /**
+     * Komponenta - formulář
+     * @return NAppForm formulář
+     */
     public function createComponentMainForm() {
         $form = new NAppForm;
         $form->addText('keyword', 'Klíčové slovo:')
@@ -103,6 +122,10 @@ class HomepagePresenter extends BasePresenter {
         return $form;
     }
 
+    /**
+     * Zpracování odeslaného formuláře
+     * @param NAppForm $form odeslaný formulář
+     */
     public function processMainForm(NAppForm $form) {
         if ($form['search']->isSubmittedBy()) {
 

@@ -1,3 +1,13 @@
+{**
+ * Flickr - feature-based reranking
+ * MI-VMW at CZECH TECHNICAL UNIVERSITY IN PRAGUE
+ *
+ * @copyright  Copyright (c) 2010
+ * @package    VMW
+ * @author     Jaroslav Líbal, Martin Venuš
+ *
+ * @param string   $data fotografie získané z Flickr API
+ *}
 {block header}
 Nalezené fotografie (celkem: <?php echo count($data['photo']); ?>)
 {/block}
@@ -6,5 +16,4 @@ Nalezené fotografie (celkem: <?php echo count($data['photo']); ?>)
 {foreach $data['photo'] as $photo}
 <a rel="lightbox" title="Podíl zvolené barvy: {$photo['percentage']} %" href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg"><img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" alt="{$photo['percentage']}%" class="gallery" /></a>
 {/foreach}
-
 {/block}
