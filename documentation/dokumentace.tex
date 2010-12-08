@@ -51,7 +51,7 @@ Pro určování jednotlivých barev v obrázku bylo nejprve nutné nadefinovat s
 
 \section{Získání dat z Flickr API}
 %Martin
-Pro získání obrázků z Flickr API využíváme třídu \texttt{phpFlickr}\footnote{http://www.phpflickr.com/}, která využívá REST API Flickeru. Pro získání fotografií využíváme metodu \texttt{flickr.photos.search} s následujícími argumenty:
+Pro získání obrázků z Flickr API využíváme třídu \texttt{phpFlickr}\footnote{\url{http://www.phpflickr.com/}}, která využívá REST API Flickeru. Pro získání fotografií využíváme metodu \texttt{flickr.photos.search} s následujícími argumenty:
 \begin{itemize}
 \item \texttt{tags} - klíčová slova
 \item \texttt{tag\_mode} = any (klíčová slova oddělená čárkou jsou vyhledávána v režimu OR)
@@ -68,9 +68,9 @@ V dalším kroku podrobujeme fotografie analýze barev.
 %Martin
 Pro získání dominantní barvy obrázku využíváme metodu Bena Hindmarcha z roku 2007 (26. 6. 2007). Metoda rozdělí obrázek na zadaný počet bloků a v těchto blocích pak vyhledává dominantní barvu. Metoda vrací dominantní barvu každého bloku obrázku.
 
-Abychom byli schopni určit základní barvu je pak nutné porovnat získané barvy jednotlivých bloků s barvami uloženými v databázi a uložit si do pole příslušnou základní barvu. Nalezení nejbližší barvy probíhá pomocí výpočtu vzdálenosti od jednotlivých barev uložených v databázi tak, že porovnáme součet kvadrátů jednotlivých barevných složek získané barvy bloku v obrázku s barvou uloženou v databázi. V databázi je 216 barev a pro každou barvu je uvedena základní barva.
+Abychom byli schopni určit základní barvu je pak nutné porovnat získané barvy jednotlivých bloků s barvami uloženými v databázi a uložit si příslušnou základní barvu. Nalezení nejbližší barvy probíhá pomocí výpočtu vzdálenosti od jednotlivých barev uložených v databázi tak, že porovnáme součet kvadrátů jednotlivých barevných složek získané barvy bloku v obrázku s barvou uloženou v databázi. V databázi je 216 barev a pro každou barvu je uvedena základní barva.
 
-Vytvoříme pole obsahující počet jednotlivých základních barev vyskytujících se v obrázku. Na konci metody vypočteme procentní podíl hledané barvy a tento podíl vrátíme.
+Následně pole obsahující počet jednotlivých základních barev vyskytujících se v obrázku a na konci metody vypočteme procentní podíl hledané barvy, který vracíme jako návratovou hodnotu metody.
 
 \section{Hodnocení}
 %Martin
