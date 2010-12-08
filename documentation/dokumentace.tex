@@ -66,6 +66,14 @@ V dalším kroku podrobujeme fotografie analýze barev.
 
 \section{Analýza barev v obrázku}
 %Martin
+Pro získání dominantní barvy obrázku využíváme metodu Bena Hindmarcha z roku 2007 (26. 6. 2007). Metoda rozdělí obrázek na zadaný počet bloků a v těchto blocích pak vyhledává dominantní barvu. Metoda vrací dominantní barvu každého bloku obrázku.
+
+Abychom byli schopni určit základní barvu je pak nutné porovnat získané barvy jednotlivých bloků s barvami uloženými v databázi a uložit si do pole příslušnou základní barvu. Nalezení nejbližší barvy probíhá pomocí výpočtu vzdálenosti od jednotlivých barev uložených v databázi tak, že porovnáme součet kvadrátů jednotlivých barevných složek získané barvy bloku v obrázku s barvou uloženou v databázi. V databázi je 216 barev a pro každou barvu je uvedena základní barva.
+
+Vytvoříme pole obsahující počet jednotlivých základních barev vyskytujících se v obrázku. Na konci metody vypočteme procentní podíl hledané barvy a tento podíl vrátíme.
+
+\section{Hodnocení}
+%Martin
 
 \section{Závěr}
 %Jarda
