@@ -17,4 +17,10 @@ abstract class BasePresenter extends NPresenter
 {
 	public $oldLayoutMode = FALSE;
 
+        public function startup(){
+            parent::startup();
+
+            NDebug::timer();
+        }
+
 }
