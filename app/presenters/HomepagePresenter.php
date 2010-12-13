@@ -22,6 +22,7 @@ class HomepagePresenter extends BasePresenter {
      * @param String $color hledaná barva
      * @param int $raster počet částí na které je obrázek rozdělen (pro vyhledávání dominantní barvy)
      * @param int $numberOfPhoto počet fotografií, které budou staženy z FlickrAPI
+     * @param int $photoPercentage kolik procent dané barvy musí fotografie obsahovat aby byla zobrazena
      *
      * Poznámky:
      * $raster určuje počet částí v horizontální (vertikální) části obrázku - tzn. ve skutečnosti bude obrázek rozdělen na $raster^2
@@ -29,7 +30,7 @@ class HomepagePresenter extends BasePresenter {
      * nejsou k dispozici v dostatečném rozlišení a proto nejsou pro barevnou analýzu
      * použity
      */
-    public function actionSearch($keyword, $color = 'black', $raster = 10, $numberOfPhoto = 20) {
+    public function actionSearch($keyword, $color = 'black', $raster = 10, $numberOfPhoto = 20, $photoPercentage = 0) {
         $f = new FlickrModel("eb01c6c4e23a0f036988692a7f42dd14");
 
         $photos = $f->photos_search(array("tags" => $keyword, "tag_mode" => "any", "sort" => "relevance", "media" => "photos", "per_page" => $numberOfPhoto));
@@ -63,6 +64,7 @@ class HomepagePresenter extends BasePresenter {
 
         usort($photos['photo'], 'ImageAnalyse::compare');
 
+        $this->template->photoPercentage = $photoPercentage;
         $this->template->data = $photos;
     }
 
@@ -116,6 +118,12 @@ class HomepagePresenter extends BasePresenter {
 
         $form->setDefaults(array('raster'=>20, 'numberOfPhoto'=>20));
 
+        for($i=0; $i<=100; $i++){
+            $photoPercentage[$i - 1] = $i;
+        }
+
+        $form->addSelect('photoPercentage', 'Procent dané barvy pro zobrazení fotografie:', $photoPercentage);
+
         $form->addSubmit('search', 'Vyhledat');
         $form->onSubmit[] = callback($this, 'processMainForm');
 
@@ -131,7 +139,7 @@ class HomepagePresenter extends BasePresenter {
 
             $data = $form->getValues(); // vezmeme data z formuláře
 
-            $this->redirect('search', $data['keyword'], $data['color'], $data['raster'], $data['numberOfPhoto']);
+            $this->redirect('search', $data['keyword'], $data['color'], $data['raster'], $data['numberOfPhoto'], $data['photoPercentage']);
         }
 
         $this->redirect('Homepage:default');

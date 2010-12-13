@@ -15,6 +15,8 @@ Nalezené fotografie (celkem: <?php echo count($data['photo']); ?>)<br />
 {block content}
 
 {foreach $data['photo'] as $photo}
-<a rel="lightbox" title="Podíl zvolené barvy: {$photo['percentage']} %" href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg"><img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" alt="{$photo['percentage']}%" class="gallery" /></a>
+{if $photo['percentage'] >= $photoPercentage}
+    <a rel="lightbox" title="Podíl zvolené barvy: {$photo['percentage']} %" href="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_b.jpg"><img src="http://farm{$photo['farm']}.static.flickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_s.jpg" alt="{$photo['percentage']}%" class="gallery" /></a>
+{/if}
 {/foreach}
 {/block}
